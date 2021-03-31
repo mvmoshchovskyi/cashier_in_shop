@@ -24,6 +24,11 @@ export const CashRegister = sequelize.define('cash_register', {
   time_work_end: { type: DataTypes.TIME, allowNull: false },
   working_day: { type: DataTypes.STRING, allowNull: false }
 })
+Cashier.hasOne(Shop)
+Shop.belongsTo(Cashier)
+
+Cashier.hasMany(CashRegister)
+CashRegister.belongsTo(Cashier)
 
 module.exports = {
   Cashier , Shop, CashRegister
